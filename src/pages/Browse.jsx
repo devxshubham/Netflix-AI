@@ -15,6 +15,10 @@ const Browse = () => {
     function handleLogout(){
         signOut(auth).then(() => {
         // Sign-out successful.
+<<<<<<< HEAD
+=======
+            navigate('/');
+>>>>>>> parent of c395a82 (protected browse route)
         }).catch((error) => {
         // An error happened.
         });
