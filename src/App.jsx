@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from 'react-redux'
 
@@ -17,16 +17,16 @@ function App() {
   useEffect( ()=>{
     onAuthStateChanged(auth, (user) => {
       if (user) {
-      
         navigate('/browse')
       } else {
         dispatch( removeUser() );
+        navigate('/')
       }
     });
   },[])
 
   return (
-    <Login/>
+    <Outlet></Outlet>
   );
 }
 

@@ -11,7 +11,7 @@ const Browse = () => {
     function handleLogout(){
         signOut(auth).then(() => {
         // Sign-out successful.
-            navigate('/');
+            // navigate('/');
         }).catch((error) => {
         // An error happened.
         });
