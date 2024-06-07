@@ -9,6 +9,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfi
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/store/userSlice";
+import { NETFLIX_BACKGROUND } from "../utils/constants";
 
 
 const Login = () => {
@@ -34,7 +35,7 @@ const Login = () => {
 
                     const user = userCredential.user;
                     updateProfile(user, {
-                        displayName: fullname.current.value, photoURL: "https://example.com/jane-q-user/profile.jpg"
+                        displayName: fullname.current.value
                       }).then(() => {
                         const {uid,email,displayName} = auth.currentUser;
                         dispatch( addUser({
@@ -84,7 +85,7 @@ const Login = () => {
         <Header></Header>
         <div className="absolute z-5 w-screen h-screen">
             <div className="absolute z-5 bg-black bottom-0 w-screen h-screen opacity-60"></div>
-            <img className="w-screen h-screen z-0 object-cover	" src="https://assets.nflxext.com/ffe/siteui/vlv3/31ef2c5c-3d08-47d5-b7a9-f29e4f4f893d/3152e5c9-a0d5-495b-ab03-073a70c5d268/US-en-20240506-POP_SIGNUP_TWO_WEEKS-perspective_WEB_34f5ff74-a994-4852-b27c-f4196ec21c67_small.jpg" 
+            <img className="w-screen h-screen z-0 object-cover	" src={NETFLIX_BACKGROUND} 
                 alt="background" />
         </div>
         <form onSubmit={(e)=>e.preventDefault()} className="flex  flex-col gap-3 rounded-md mx-auto mt-32 p-10 justify-center items-start relative z-20 bg-black/70" >

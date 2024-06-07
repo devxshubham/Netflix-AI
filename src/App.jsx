@@ -13,16 +13,21 @@ import { addUser, removeUser } from "./utils/store/userSlice";
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   
   useEffect( ()=>{
-    onAuthStateChanged(auth, (user) => {
+    console.log("event listner added");
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        navigate('/browse')
+        navigate('/browse');
       } else {
         dispatch( removeUser() );
-        navigate('/')
+        navigate('/');
       }
+
     });
+
+    return () => unsubscribe();
   },[])
 
   return (
