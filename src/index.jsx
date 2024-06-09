@@ -16,11 +16,17 @@ import Browse from "./pages/Browse";
 const Router = createBrowserRouter([
   {
     path : '/',
-    element : <App />
-  },
-  {
-    path : '/browse',
-    element : <Browse/>
+    element :<App/>,
+    children: [
+      {
+        path : '/',
+        element : <Login />
+      },
+      {
+        path : '/browse',
+        element : <Browse/>
+      }
+    ]
   }
 ])
 
