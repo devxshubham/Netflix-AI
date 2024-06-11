@@ -1,23 +1,17 @@
-import { useEffect } from "react";
-import { OPTIONS } from "../utils/constants";
+
+import useGetTrailer from "../hooks/useGetTrailer";
 
 function VedioBackground({id}) {
-    
-    useEffect( () => {
-        const getMovieVedio = async() => {
-            const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos`, 
-                OPTIONS)
-            const data = await response.json()
-            console.log(data);
+    const trailerVideo = useGetTrailer(id);
 
-            const trailer = data?.results.filter( video => video.type === "Trailer")
-            console.log(trailer[0]);
-        }
-        getMovieVedio();
-    },[])
-
-    return <div>
-        
+    return <div className="">
+        <iframe
+            className=""
+            src={"https://www.youtube.com/embed/"+trailerVideo?.key }
+            title="YouTube video player" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
+            >
+        </iframe>
     </div>;
 }
 
