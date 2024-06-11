@@ -4,8 +4,8 @@ import { IoIosInformationCircleOutline } from "react-icons/io";
 
 function VedioInfo({movie}) {
     const { title, overview} = movie
-    console.log(movie);
-    return <div>
+
+    return <div className="z-5">
         <h1 className="font-bold text-[20px]">{title}</h1>
         <p>{overview}</p>
         <div className="flex gap-5">
