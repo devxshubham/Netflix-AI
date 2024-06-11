@@ -16,7 +16,7 @@ function BrowseNav() {
     }
 
 
-    return <nav className="flex justify-between px-32 py-6 bg-gradient-to-b from-black to-transparent ">
+    return <nav className="flex absolute top-0 left-0 right-0 justify-between px-32 py-6 bg-gradient-to-b from-black to-transparent ">
         <Header></Header>
         <div className="flex text-white gap-5">
             <button>Home</button>
