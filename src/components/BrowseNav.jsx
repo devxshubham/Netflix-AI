@@ -3,6 +3,8 @@ import { AVATAR } from "../utils/constants";
 
 import {auth} from '../utils/firebase'
 import { signOut } from "firebase/auth";
+import { useDispatch } from 'react-redux';
+import { toggleState } from '../utils/store/AIsearchSlice';
 
 
 function BrowseNav() {
@@ -14,10 +16,14 @@ function BrowseNav() {
             // An error happened.
           });
     }
-
+    const dispatch = useDispatch();
+    function handleAiSearch(){
+        dispatch(toggleState());
+    }
 
     return <nav className="flex absolute top-0 left-0 right-0 justify-between px-32 py-6 bg-gradient-to-b from-black to-transparent ">
         <Header></Header>
+        
         <div className="flex text-white gap-5">
             <button>Home</button>
             <button>TV shows</button>
@@ -26,6 +32,12 @@ function BrowseNav() {
             <button>Browse By Language</button>
         </div>
         <div className="flex  gap-5">
+                <button 
+                    className='bg-transparent text-white px-3 py-2 border rounded'
+                    onClick={handleAiSearch}
+                >
+                    AI Search
+                </button>
                 <img src={AVATAR} alt="" />
                 <button className="bg-black text-white" onClick={handleSignout}>log out</button>
         </div>
