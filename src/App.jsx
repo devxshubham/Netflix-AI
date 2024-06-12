@@ -16,7 +16,6 @@ function App() {
 
   
   useEffect( ()=>{
-    console.log("event listner added");
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         navigate('/browse');
