@@ -1,6 +1,5 @@
 import { useEffect } from "react"
 import { useDispatch } from "react-redux"
-import axios from 'axios'
 
 import { addMovies } from "../utils/store/movieSlice"
 import { OPTIONS } from "../utils/constants"
