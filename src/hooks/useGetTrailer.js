@@ -4,24 +4,25 @@ import { OPTIONS } from "../utils/constants";
 import { useEffect } from "react";
 
 const useGetTrailer = (id) => {
-    const dispatch = useDispatch();
-    
-    useEffect( () => {
-        const getMovieVedio = async() => {
-            const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos`, 
-                OPTIONS)
-            const data = await response.json()
+  const dispatch = useDispatch();
 
-            const trailer = data?.results.filter( video => video.type === "Trailer")
-            dispatch(addTrailer(trailer[0]));
-        }
-        getMovieVedio();
-        
-    },[])
+  useEffect(() => {
+    const getMovieVedio = async () => {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${id}/videos`,
+        OPTIONS
+      );
+      const data = await response.json();
 
-    const trailerVideo = useSelector( store => store.movies.trailerVideo)
+      const trailer = data?.results.filter((video) => video.type === "Trailer");
+      dispatch(addTrailer(trailer[0]));
+    };
+    getMovieVedio();
+  }, []);
 
-    return trailerVideo
-}
+  const trailerVideo = useSelector((store) => store.movies.trailerVideo);
+
+  return trailerVideo;
+};
 
 export default useGetTrailer;

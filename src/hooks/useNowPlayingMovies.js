@@ -1,24 +1,24 @@
-import { useEffect } from "react"
-import { useDispatch } from "react-redux"
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
-import { addMovies } from "../utils/store/movieSlice"
-import { OPTIONS } from "../utils/constants"
+import { addMovies } from "../utils/store/movieSlice";
+import { OPTIONS } from "../utils/constants";
 
 const useNowPlayingMovies = () => {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-    useEffect( () => {
-        const NowPlayingMovies = async() => {
-            
-            const response = await fetch('https://api.themoviedb.org/3/movie/now_playing', 
-                OPTIONS)
-            const data = await response.json()
-            dispatch(addMovies(data.results));
-            
-        }
+  useEffect(() => {
+    const NowPlayingMovies = async () => {
+      const response = await fetch(
+        "https://api.themoviedb.org/3/movie/now_playing",
+        OPTIONS
+      );
+      const data = await response.json();
+      dispatch(addMovies(data.results));
+    };
 
-        NowPlayingMovies();
-    },[])
-}
+    NowPlayingMovies();
+  }, []);
+};
 
 export default useNowPlayingMovies;

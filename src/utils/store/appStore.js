@@ -1,16 +1,15 @@
-import {configureStore} from '@reduxjs/toolkit'
+import { configureStore } from "@reduxjs/toolkit";
 
-import userReducer from './userSlice'
-import moviesReducer from './movieSlice'
-import AIreducer from './AIsearchSlice'
+import userReducer from "./userSlice";
+import moviesReducer from "./movieSlice";
+import AIreducer from "./AIsearchSlice";
 
 const appStore = configureStore({
-        reducer : {
-            user : userReducer,
-            movies : moviesReducer,
-            AIshow : AIreducer,
-        },
-})
+  reducer: {
+    user: userReducer,
+    movies: moviesReducer,
+    AIshow: AIreducer,
+  },
+});
 
-
-export default appStore
+export default appStore;

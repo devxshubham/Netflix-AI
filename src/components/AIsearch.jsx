@@ -1,16 +1,29 @@
-import { useSelector } from "react-redux";
+import { NETFLIX_BACKGROUND } from "../utils/constants";
 
 function AIsearch() {
-    const showAIsearch = useSelector(store => store.AIshow.showSearch)
-    console.log(showAIsearch)
-    return <div 
-        className={
-            `flex gap-5 my-10 absolute z-20 p-10 bg-gray-500 rounded top-5 left-72 transition-transform ease-in-out duration-200 delay-0
-            ${showAIsearch ? "-translate-y-0" : "-translate-y-48"}`
-        }>
-        <input type="text" className="border-white bg-black text-white  px-5 py-2"/>
-        <button className="text-white bg-black px-5 py-2 rounded">Search</button>
-    </div>;
+  return (
+    <div className="flex flex-col h-screen bg-black items-center justify-center">
+      <div className="absolute z-5 w-screen h-screen">
+        <div className="absolute z-5 bg-black bottom-0 w-screen h-screen opacity-60"></div>
+        <img
+          className="w-screen h-screen z-0 object-cover	"
+          src={NETFLIX_BACKGROUND}
+          alt="background"
+        />
+      </div>
+      <div className="flex justify-center rounded-lg z-10 bg-black bg-opacity-80 h-[30%] w-[40%] gap-5 items-center">
+        <input
+          className="border-none rounded py-2 px-5 w-72 text-white"
+          type="text"
+          placeholder="What would you like to watch?"
+        />
+        <button className="bg-[#e80c14] py-2 rounded px-5 text-white">
+          Search
+        </button>
+      </div>
+      <div className="text-white">recommendations</div>
+    </div>
+  );
 }
 
 export default AIsearch;
