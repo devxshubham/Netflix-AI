@@ -1,6 +1,10 @@
+import { useSelector } from "react-redux";
 import { NETFLIX_BACKGROUND } from "../utils/constants";
+import languages from "../utils/languageConstant";
 
 function AIsearch() {
+  const currLanguage = useSelector( store => store.language.currLang);
+
   return (
     <div className="flex flex-col h-screen bg-black items-center justify-center">
       <div className="absolute z-5 w-screen h-screen">
@@ -15,10 +19,10 @@ function AIsearch() {
         <input
           className="border-none rounded py-2 px-5 w-72 text-white"
           type="text"
-          placeholder="What would you like to watch?"
+          placeholder={languages.AIsearchPlaceholder[currLanguage]}
         />
         <button className="bg-[#e80c14] py-2 rounded px-5 text-white">
-          Search
+          {languages.AIsearch[currLanguage]}
         </button>
       </div>
       <div className="text-white">recommendations</div>
