@@ -8,7 +8,6 @@ function SecondaryContainer() {
     <div className=" bg-black ">
       <div className="flex flex-col gap-6 -mt-48 ml-5  bg-transparent z-20">
         <MovieList
-          className="bg-white"
           title={"Now Playing"}
           movies={movies?.nowPlayingMovies}
         />
