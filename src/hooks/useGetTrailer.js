@@ -6,8 +6,10 @@ import { useEffect } from "react";
 const useGetTrailer = (id) => {
   const dispatch = useDispatch();
 
+  const trailerVideo = useSelector((store) => store.movies.trailerVideo);
+
   useEffect(() => {
-    const getMovieVedio = async () => {
+    const getMovieVideo = async () => {
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/${id}/videos`,
         OPTIONS
@@ -17,10 +19,10 @@ const useGetTrailer = (id) => {
       const trailer = data?.results.filter((video) => video.type === "Trailer");
       dispatch(addTrailer(trailer[0]));
     };
-    getMovieVedio();
+    !trailerVideo && getMovieVideo(); // if not trailer than only call getMovieVideo()
   }, []);
 
-  const trailerVideo = useSelector((store) => store.movies.trailerVideo);
+  
 
   return trailerVideo;
 };
