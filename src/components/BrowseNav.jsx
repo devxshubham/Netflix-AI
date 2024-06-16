@@ -39,7 +39,7 @@ function BrowseNav() {
         <button className="whitespace-nowrap">Movies</button>
         <button className="whitespace-nowrap">New & Popular</button>
       </div>
-      <div className="flex -ml-14 md:ml-0 mt-10 md:mt-0 gap-5">
+      <div className="flex -ml-14 md:ml-0 mt-10 md:mt-0 gap-2 md:gap-5">
         {showAI ? (
           <select name="language" id="" className="bg-black text-white p-1 border-white rounded-md" onChange={handleLanguageChange}>
             {SUPPORTED_LANG?.map((lang) => {

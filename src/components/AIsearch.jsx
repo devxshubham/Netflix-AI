@@ -75,17 +75,16 @@ function AIsearch() {
   };
 
   return (
-    <div>
-    <div className="flex flex-col h-screen bg-black items-center justify-center overflow-x-scroll">
-      <div className="absolute  md:w-screen h-screen">
-        <div className="absolute bg-black bottom-0 w-screen h-screen opacity-60"></div>
+    <div className="flex flex-col h-screen bg-black ">
+      <div className="absolute  w-screen h-screen">
+        <div className="absolute bg-black right-0 bottom-0 w-screen h-screen opacity-60"></div>
         <img
           className="w-screen h-screen z-0 object-cover	"
           src={NETFLIX_BACKGROUND}
           alt="background"
         />
       </div>
-      <div className="flex flex-col md:flex-row  justify-center items-center px-10 py-20 rounded-lg z-10 bg-black bg-opacity-80  gap-5 ">
+      <div className="flex flex-col md:flex-row my-auto mx-auto justify-center items-center px-10 py-20 rounded-lg z-10 bg-black bg-opacity-80  gap-5 ">
         <input
           onChange={(e) => (inputRef.current = e.target.value)}
           className="border-none text-black rounded py-2 px-5 w-72 "
@@ -99,11 +98,9 @@ function AIsearch() {
           {languages.AIsearch[currLanguage]}
         </button>
       </div>
-      <div className="text-white">recommendations</div>
       
-    </div>
-    <div className="absolute bottom-10 z-10 flex items-start">
-        <AIrecommendedMovies />
+      <div className="relative bottom-10 rounded -left-6 sm:left-0">
+      <AIrecommendedMovies />
       </div>
     </div>
   );
