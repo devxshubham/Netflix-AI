@@ -43,7 +43,7 @@ function BrowseNav() {
         {showAI ? (
           <select name="language" id="" className="bg-black text-white p-1 border-white rounded-md" onChange={handleLanguageChange}>
             {SUPPORTED_LANG?.map((lang) => {
-              return <option className="text-[10px]" value={lang.identifier}>{lang.name}</option>;
+              return <option key={lang.name} className="text-[10px]" value={lang.identifier}>{lang.name}</option>;
             })}
           </select>
         ) : (

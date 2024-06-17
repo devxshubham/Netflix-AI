@@ -26,7 +26,6 @@ function AIsearch() {
   const filterTMDBresults = (TMDBresult, MovieNameArray) => {
     let x = 0;
     const filteredResults = [];
-    console.log(TMDBresult);
     TMDBresult?.map((movies) => {
       let flag = 0;
       for (let i = 0; i < movies.length; i++) {
@@ -60,16 +59,11 @@ function AIsearch() {
     const TMDBresultsPromise = MovieNameArray?.map((movie) =>
       TMDBsearchMovie(movie)
     );
-    console.log(
-      "GEMINI RESPONSE",
-      response?.candidates[0]?.content?.parts[0]?.text
-    );
+  
     const TMDBresult = await Promise.all(TMDBresultsPromise);
 
-    console.log(TMDBresult);
 
     const AIrecommendedMovies = filterTMDBresults(TMDBresult, MovieNameArray);
-    console.log(AIrecommendedMovies);
 
     dispatch(addAImovies(AIrecommendedMovies));
   };

@@ -16,7 +16,7 @@ const useTopRatedMovies = () => {
         OPTIONS
       );
       const data = await response.json();
-      console.log("top -> ", data.results);
+      
       dispatch(addTopRated(data.results));
     };
 

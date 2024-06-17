@@ -6,7 +6,7 @@ function MovieList({ title, movies }) {
       <h1 className="text-2xl font-semibold text-white">{title}</h1>
       <div className="flex gap-10 overflow-x-scroll no-scrollbar cursor-pointer">
         {movies?.map((movie) => {
-          return <MovieCard movieData={movie} />;
+          return <MovieCard key={movie.id} movieData={movie} />;
         })}
       </div>
     </div>
