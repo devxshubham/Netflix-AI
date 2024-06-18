@@ -67,14 +67,14 @@ function BrowseNav() {
           <></>
         )}
         <button
-          className="whitespace-nowrap bg-transparent text-white px-3 py-2 border rounded"
+          className="whitespace-nowrap bg-transparent text-white px-1 py-1 md:px-3 md:py-2 border rounded"
           onClick={handleAiSearch}
         >
           AI Search
         </button>
         <img className=" object-contain rounded" src={AVATAR} alt="" />
         <button
-          className="bg-black whitespace-nowrap text-white px-3 py-1 rounded"
+          className="bg-black whitespace-nowrap text-white px-1 md:px-3 py-1 rounded"
           onClick={handleSignout}
         >
           log out

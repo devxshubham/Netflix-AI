@@ -9,7 +9,7 @@ const MainContainer = () => {
   const mainMovie = movie[0];
 
   return (
-    <div className="-mt-14">
+    <div className="mt-0 md:-mt-14">
       <VedioInfo movie={mainMovie}></VedioInfo>
       <VideoBackground id={mainMovie.id}></VideoBackground>
     </div>
