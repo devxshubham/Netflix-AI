@@ -30,7 +30,7 @@ function BrowseNav() {
   }
 
   return (
-    <nav className="flex flex-col md:flex-row items-center absolute z-10 top-0 left-0 right-0 justify-between px-32 py-6 bg-gradient-to-b from-black to-transparent ">
+    <nav className="flex flex-col md:flex-row items-end md:items-center absolute z-10 top-0 left-0 right-0 md:justify-between px-10 md:px-32 py-6 bg-gradient-to-b from-black to-transparent ">
       <Header></Header>
 
       <div className="md:flex hidden  text-white gap-5">
@@ -39,11 +39,28 @@ function BrowseNav() {
         <button className="whitespace-nowrap">Movies</button>
         <button className="whitespace-nowrap">New & Popular</button>
       </div>
-      <div className="flex -ml-14 md:ml-0 mt-10 md:mt-0 gap-2 md:gap-5">
+      <div
+        className={`flex -ml-14 md:ml-0 ${
+          showAI ? "mt-10" : ""
+        } md:mt-0 gap-2 md:gap-5`}
+      >
         {showAI ? (
-          <select name="language" id="" className="bg-black text-white p-1 border-white rounded-md" onChange={handleLanguageChange}>
+          <select
+            name="language"
+            id=""
+            className="bg-black text-white p-1 border-white rounded-md"
+            onChange={handleLanguageChange}
+          >
             {SUPPORTED_LANG?.map((lang) => {
-              return <option key={lang.name} className="text-[10px]" value={lang.identifier}>{lang.name}</option>;
+              return (
+                <option
+                  key={lang.name}
+                  className="text-[10px]"
+                  value={lang.identifier}
+                >
+                  {lang.name}
+                </option>
+              );
             })}
           </select>
         ) : (
@@ -56,7 +73,10 @@ function BrowseNav() {
           AI Search
         </button>
         <img className=" object-contain rounded" src={AVATAR} alt="" />
-        <button className="bg-black whitespace-nowrap text-white px-3 py-1 rounded" onClick={handleSignout}>
+        <button
+          className="bg-black whitespace-nowrap text-white px-3 py-1 rounded"
+          onClick={handleSignout}
+        >
           log out
         </button>
       </div>
