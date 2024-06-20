@@ -10,6 +10,7 @@ import AIsearch from "../components/AIsearch";
 import { useSelector } from "react-redux";
 
 const Browse = () => {
+  
   useNowPlayingMovies();
   usePopularMovies();
   useTopRatedMovies();

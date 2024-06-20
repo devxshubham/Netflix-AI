@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { addMovies } from "../utils/store/movieSlice";
+import { addMovies, addTrailerVideo } from "../utils/store/movieSlice";
 import { OPTIONS } from "../utils/constants";
 
 const useNowPlayingMovies = () => {
@@ -17,6 +17,7 @@ const useNowPlayingMovies = () => {
       );
       const data = await response.json();
       dispatch(addMovies(data.results));
+      dispatch(addTrailerVideo(data.results[0]));
     };
 
     !nowPlayingMovies && NowPlayingMovies();

@@ -3,13 +3,12 @@ import VedioInfo from "./VedioInfo";
 import VideoBackground from "./VideoBackground";
 
 const MainContainer = () => {
-  const movie = useSelector((store) => store.movies?.nowPlayingMovies);
-  if (!movie) return;
+  const mainMovie = useSelector( store => store.movies?.trailerVedioInfo);
 
-  const mainMovie = movie[0];
-
+  if (!mainMovie ) return;
+  
   return (
-    <div className="mt-0 md:-mt-14">
+    <div className="mt-0 md:-mt-20">
       <VedioInfo movie={mainMovie}></VedioInfo>
       <VideoBackground id={mainMovie.id}></VideoBackground>
     </div>

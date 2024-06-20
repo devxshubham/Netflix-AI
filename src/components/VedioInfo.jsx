@@ -2,6 +2,7 @@ import { FaPlay } from "react-icons/fa";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 
 function VedioInfo({ movie }) {
+
   const { title, overview } = movie;
 
   return (
