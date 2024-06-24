@@ -3,6 +3,8 @@ import { useRef, useState } from "react";
 import Header from "../components/Header";
 import { validate } from "../utils/validate";
 
+import { FaRegEye } from "react-icons/fa";
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -126,19 +128,20 @@ const Login = () => {
           placeholder="Email"
           ref={email}
         />
-        <input
-          className="px-5 py-2 text-white rounded border bg-transparent"
-          type={viewPassword ? "text" : "password"}
-          placeholder="Password"
-          ref={password}
-        />
-        <button
-          className="bg-white "
-          onClick={() => setViewPassword((prev) => !prev)}
-        >
-          {" "}
-          **{" "}
-        </button>
+        <div className="relative">
+          <input
+            className="px-5 py-2 text-white rounded border bg-transparent"
+            type={viewPassword ? "text" : "password"}
+            placeholder="Password"
+            ref={password}
+          />
+          <button
+            className="absolute top-3 right-3 text-white"
+            onClick={() => setViewPassword((prev) => !prev)}
+          >
+            <FaRegEye />{" "}
+          </button>
+        </div>
         {errorMessage ? (
           <p className="text-red-500 text-center w-full">{errorMessage}</p>
         ) : (
@@ -153,10 +156,10 @@ const Login = () => {
 
         <div className=" text-white/70 text-center w-full">OR</div>
         <div className="text-white opacity-100">Forgot Password?</div>
-        <div className="text-white/70">
+        <div className="text-white/70 flex gap-1">
           New to Netflix?
           <button onClick={handleSignup} className="text-white font-bold ">
-            {signup ? " Sign in now" : " Sign up now"}
+            {signup ? "Sign in now" : "Sign up now"}
           </button>
         </div>
       </form>
